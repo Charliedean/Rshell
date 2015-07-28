@@ -4,9 +4,10 @@ Dependencies: <br />
 Python2.7 <br />
 Netcat <br />
 
+Use Rsh To Get A Interactive Shell :) <br />
 Usage: <br />
-./rsh.py 10.10.10.10 foobar foobar id <br />
-./rsh.py ipaddr fromusr usrname command <br />
+./rsh.py 10.10.10.10 foobar foobar  <br />
+./rsh.py ipaddr fromusr usrname  <br />
 
 Bugs: <br />
-Small bug with the shell, some commands need to be entered twice
+No Bugs Anymore
