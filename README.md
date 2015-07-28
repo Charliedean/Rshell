@@ -1,4 +1,4 @@
-# Rshell.py
+# Rshell
 Working Rsh Client With Bind Shell <br />
 Dependencies: <br />
 Python2.7 <br />
