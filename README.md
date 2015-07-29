@@ -1,5 +1,5 @@
 # Rshell
-Working Rsh Client With Bind Shell <br />
+Working Rsh Client With Bind And Reverse Shell <br />
 Dependencies: <br />
 Python2.7 <br />
 Netcat <br />
