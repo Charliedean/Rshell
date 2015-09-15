@@ -6,7 +6,6 @@ import random
 import time
 import subprocess
 import signal
-import threading
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
